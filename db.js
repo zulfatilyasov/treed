@@ -42,6 +42,7 @@ Db.prototype = {
   },
 
   create: function (pid, ix, content, type) {
+    debugger;
     var id = uuid()
     var now = Date.now()
     var node = {
@@ -53,6 +54,13 @@ Db.prototype = {
       type: type || 'base',
       children: [],
       parent: pid,
+      attributes:[{
+        "name": "assignee",
+        "value": "ZI"
+      }, {
+        "name": "world",
+        "value": "Hello"
+      }]
     }
     if (this.addNewNodeAttrs) {
       this.addNewNodeAttrs.map(fn => fn(node))
@@ -103,6 +111,7 @@ Db.prototype = {
       if (err) return done(err)
       this.nodes = {}
       var now = Date.now()
+      debugger;
       this.nodes[this.root] = {
         id: this.root,
         created: now,
