@@ -1,0 +1,8 @@
+{
+  "stage": 1,
+  "ignore": [
+    "node_modules",
+    "demo",
+    "webpack.config.js"
+  ]
+}

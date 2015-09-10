@@ -1,4 +1,3 @@
-
 import './index.less'
 
 var React = require('react')

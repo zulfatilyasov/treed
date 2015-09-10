@@ -1,0 +1,531 @@
+@charset "utf-8";
+.TreeItem_head {
+  display: flex;
+  position: relative;
+}
+.TreeItem_body {
+  flex: 1;
+}
+.treed_body {
+  flex: 1;
+}
+.TreeItem_children {
+  margin-left: 20px;
+}
+.TreeItem_nochildren {
+  cursor: pointer;
+}
+.textarea-grow {
+  position: relative;
+}
+.textarea-grow textarea {
+  width: 100%;
+  height: 0;
+  border: 0;
+  padding: 0;
+  resize: none;
+  font-size: 1em;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+.textarea-grow .shadow {
+  white-space: pre-wrap;
+  position: absolute;
+  font-family: sans-serif;
+  width: 100%;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+}
+.treed_body_rendered,
+.textarea-grow textarea,
+.textarea-grow .shadow {
+  font-family: sans-serif;
+  font-size: 14px;
+}
+.textarea-grow textarea {
+  outline: none;
+}
+.n_Collapse > .TreeItem_children {
+  display: none;
+}
+.list > .n_Collapse > .TreeItem_children {
+  display: block;
+}
+.m_Collapser {
+  cursor: pointer;
+}
+.m_Collapser:after {
+  content: '+';
+}
+.m_Collapser-collapsed:after {
+  content: '-';
+}
+.Breadcrumb {
+  padding: 0;
+  margin: 0;
+  flex: 1;
+}
+.Breadcrumb_item {
+  display: inline-block;
+  list-style: none;
+  padding: 5px 15px;
+  position: relative;
+  cursor: pointer;
+  border-radius: 10px;
+  font-weight: bold;
+  color: #999;
+}
+.Breadcrumb_item:not(:last-child)::after {
+  z-index: 1;
+  top: 4px;
+  right: -4px;
+  content: '\00BB';
+  position: absolute;
+}
+.m_RebaseDot {
+  cursor: pointer;
+}
+.TreeItem_body {
+  display: flex;
+  align-items: center;
+}
+.TreeItem_body .treed_body {
+  flex: 1;
+}
+.ShowTags {
+  position: absolute;
+  right: 0;
+}
+.ShowTags-icon {
+  position: absolute;
+  left: 100%;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity .3s ease;
+  top: 0;
+}
+.ShowTags-icon:after {
+  content: 'tags';
+}
+.TreeItem-active > .TreeItem_head .ShowTags-icon {
+  opacity: 1;
+}
+.m_Todo {
+  width: 1em;
+  height: 1em;
+  border: 1px solid #ccc;
+  margin: 0px 10px 0;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: white;
+}
+.m_Todo-done:after {
+  content: '✓';
+  position: relative;
+  top: -0.3em;
+  left: 0px;
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #555;
+  line-height: 1em;
+  height: 10px;
+  display: block;
+}
+.n_Done > .TreeItem_head .treed_body_rendered {
+  color: #555;
+}
+.TreeItem-type-todo > .TreeItem_head .TreeItem_body {
+  display: flex;
+  align-items: center;
+}
+.TreeItem-type-todo > .TreeItem_head .TreeItem_body .treed_body {
+  flex: 1;
+}
+.TreeItem-type-image > .TreeItem_head h3,
+.TreeItem-type-image > .TreeItem_head .treed_body_rendered,
+.TreeItem-type-image > .TreeItem_head .textarea-grow textarea {
+  text-align: center;
+}
+.TreeItem-type-image > .TreeItem_head h3 {
+  margin: 0px;
+  padding: 10px;
+}
+.treed_body-type-image {
+  text-align: center;
+}
+.treed_body-type-image img {
+  max-width: 100%;
+  box-shadow: 0px 2px 7px #555;
+  margin-top: 5px;
+}
+.treed_body-type-image .treed_body_rendered {
+  font-size: 90%;
+  padding-top: 2px;
+  color: #333;
+}
+.ImageBase {
+  position: relative;
+}
+.ImageBase-dragging {
+  opacity: .5;
+  outline: 10px dotted black;
+}
+.ImageBase_close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  background-color: #aaa;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 2px 5px 3px;
+  border-radius: 3px;
+  line-height: 16px;
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+.ImageBase:hover .ImageBase_close {
+  opacity: 1;
+}
+.TreeItem-type-list > .TreeItem_head .TreeItem_body {
+  display: flex;
+}
+.TreeItem-type-list > .TreeItem_head .TreeItem_body:before {
+  content: '\25cf';
+  padding: 4px 15px;
+}
+.TreeItem-type-list > .TreeItem_head .TreeItem_body .treed_body {
+  flex: 1;
+}
+.TreeItem-type-ordered_list > .TreeItem_head .TreeItem_body {
+  display: flex;
+}
+.TreeItem-type-ordered_list > .TreeItem_head .TreeItem_body:before {
+  content: '1';
+  padding: 4px 15px;
+}
+.TreeItem-type-ordered_list > .TreeItem_head .TreeItem_body .treed_body {
+  flex: 1;
+}
+.TreeItem-type-ordered_list + .TreeItem-type-ordered_list > .TreeItem_head .TreeItem_body:before {
+  content: '2';
+}
+.TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list > .TreeItem_head .TreeItem_body:before {
+  content: '3';
+}
+.TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list > .TreeItem_head .TreeItem_body:before {
+  content: '4';
+}
+.TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list > .TreeItem_head .TreeItem_body:before {
+  content: '5';
+}
+.TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list > .TreeItem_head .TreeItem_body:before {
+  content: '6';
+}
+.TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list > .TreeItem_head .TreeItem_body:before {
+  content: '7';
+}
+.TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list > .TreeItem_head .TreeItem_body:before {
+  content: '8';
+}
+.TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list > .TreeItem_head .TreeItem_body:before {
+  content: '9';
+}
+.TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list > .TreeItem_head .TreeItem_body:before {
+  content: '10';
+}
+.TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list > .TreeItem_head .TreeItem_body:before {
+  content: '11';
+}
+.TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list > .TreeItem_head .TreeItem_body:before {
+  content: '12';
+}
+.TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list > .TreeItem_head .TreeItem_body:before {
+  content: '13';
+}
+.TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list > .TreeItem_head .TreeItem_body:before {
+  content: '14';
+}
+.TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list + .TreeItem-type-ordered_list > .TreeItem_head .TreeItem_body:before {
+  content: '15';
+}
+.ContextMenu {
+  font-family: sans-serif;
+  background-color: white;
+  position: fixed;
+}
+.ContextMenu_item {
+  position: relative;
+}
+.ContextMenu_item > .ContextMenu_item_title {
+  cursor: pointer;
+  padding: 5px 10px;
+  background-color: white;
+  padding-right: 60px;
+  white-space: nowrap;
+}
+.ContextMenu_item-disabled > .ContextMenu_item_title {
+  cursor: default;
+  color: #888;
+}
+.ContextMenu_item-selected > .ContextMenu_item_title {
+  background-color: #cef;
+}
+.ContextMenu_item_shortcut {
+  background-color: #eee;
+  border-radius: 2px;
+  padding: 1px 5px;
+  position: absolute;
+  right: 6px;
+  top: 6px;
+  font-family: monospace;
+  box-shadow: 0 0 5px #aaa inset;
+  text-shadow: 1px 1px 3px #777;
+  color: #555;
+}
+.ContextMenu_item-parent > .ContextMenu_item_title::after {
+  content: '\25b8';
+  position: absolute;
+  right: 10px;
+  top: 3px;
+  color: #777;
+}
+.ContextMenu_body {
+  box-shadow: 0px 3px 7px #919191;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  margin-left: 3px;
+}
+.Mindmap {
+  width: 1200px;
+  height: 800px;
+  margin: 30px auto;
+  box-shadow: 0 0 10px black inset;
+  position: relative;
+}
+.MindmapLinks {
+  overflow: visible;
+}
+.MindmapLinks path {
+  stroke: black;
+  stroke-width: 10px;
+}
+.MindmapMovable {
+  overflow: hidden;
+  height: 800px;
+  width: 1200px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: move;
+  cursor: -webkit-grab;
+}
+.MindmapMovable_container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform .2s ease, top .2s ease, left .2s ease;
+}
+.MindmapNode {
+  position: absolute;
+  transition: transform .2s ease, opacity .2s ease;
+  opacity: 1;
+  top: 0;
+  left: 0;
+}
+.MindmapNode-parent > .MindmapNode_main .MindmapNode_collapser {
+  opacity: 0;
+  transition: opacity .2s ease;
+}
+.MindmapNode-parent > .MindmapNode_main .MindmapNode_collapser::after {
+  content: ' ';
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  margin-left: 2px;
+  color: #ccc;
+  margin-top: -20px;
+  cursor: pointer;
+  border-width: 20px 0px 20px 15px;
+  border-color: transparent transparent transparent #ddd;
+  border-style: solid;
+}
+.MindmapNode-parent > .MindmapNode_main:hover .MindmapNode_collapser,
+.MindmapNode-collapsed > .MindmapNode_main .MindmapNode_collapser {
+  opacity: 1;
+}
+.MindmapNode-hiding {
+  pointer-events: none;
+}
+.Mindmap-active .MindmapNode-active > .MindmapNode_main {
+  border-color: magenta;
+}
+.Mindmap-active .MindmapNode-editing > .MindmapNode_main {
+  border-color: green;
+}
+.MindmapNode_line {
+  border: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 6px;
+  margin-top: -3px;
+  background: #ccc;
+  transform-origin: 0 50%;
+  transition: transform .2s ease, width .2s ease;
+}
+.MindmapNode_main {
+  padding: 20px;
+  width: 250px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  background: white;
+  cursor: pointer;
+  z-index: 10;
+  position: relative;
+}
+/** Rebase **/
+.m_RebaseDot {
+  background-color: transparent;
+  width: auto;
+  height: auto;
+  float: none;
+}
+.m_RebaseDot::before {
+  content: "\2022";
+  cursor: pointer;
+}
+.m_RebaseDot:hover {
+  background-color: #aaa;
+  border-radius: 10px;
+  line-height: 10px;
+  margin-top: 4px;
+  height: 10px;
+}
+.m_RebaseDot {
+  padding: 3px;
+  font-size: 25px;
+  line-height: 18px;
+  overflow: hidden;
+  margin: 0 0 0 5px;
+}
+.TreeItem-parent.n_Collapse > .TreeItem_head .m_RebaseDot {
+  font-size: 40px;
+  line-height: 14px;
+  margin-top: 0;
+  overflow: hidden;
+  color: #777;
+  margin-left: 3px;
+  margin-right: -1px;
+  height: 12px;
+  padding: 3px 2px;
+}
+/** Collapse **/
+.m_Collapser {
+  position: relative;
+  opacity: 0;
+  cursor: pointer;
+  width: 0;
+  height: 0;
+  margin-top: 3px;
+}
+.TreeItem-parent > .TreeItem_head:hover .m_Collapser {
+  opacity: 1;
+}
+.m_Collapser:after {
+  content: "-";
+  position: absolute;
+  top: -1px;
+  font-weight: bold;
+  font-family: monospace;
+  cursor: pointer;
+  font-size: 20px;
+  left: -14px;
+  width: 20px;
+}
+.TreeItem-parent > .TreeItem_head .m_Collapser-collapsed {
+  opacity: 0.6;
+}
+.m_Collapser-collapsed:after {
+  content: "+";
+}
+/** Root node **/
+.TreeItem-root > .TreeItem_head .m_RebaseDot,
+.TreeItem-root > .TreeItem_head .m_Collapser,
+.TreeItem-root > .TreeItem_head .m_Collapser:after {
+  display: none;
+}
+.TreeItem-root > .TreeItem_head .TreeItem_body {
+  font-size: 30px;
+  padding-left: 5px;
+}
+.TreeItem-root > .TreeItem_head .TreeItem_body .treed_body_rendered,
+.TreeItem-root > .TreeItem_head .TreeItem_body textarea,
+.TreeItem-root > .TreeItem_head .TreeItem_body .shadow {
+  padding-left: 10px;
+  font-size: 30px;
+  border-radius: 10px;
+}
+/** body **/
+.TreeItem_body {
+  margin-left: 0px;
+  border: 1px solid transparent;
+  border-bottom: 1px solid #ddd;
+}
+.TreeItem-editing > .TreeItem_head .TreeItem_body {
+  background-color: white;
+}
+.TreeItem-selected > .TreeItem_children {
+  background-color: #E0F9FF;
+  border-radius: 10px;
+}
+.m_Done > .TreeItem_head .treed_body {
+  color: #777;
+  font-style: italic;
+}
+.treed_body_rendered,
+.textarea-grow textarea,
+.textarea-grow .shadow {
+  border: none;
+  margin: 0;
+  display: block;
+  font-size: 16px;
+  min-height: 24px;
+  padding: 3px 7px;
+  font-family: sans-serif;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background-color: transparent;
+}
+.treed_body_rendered blockquote {
+  border-left: 5px solid #ccc;
+  padding-left: 10px;
+  margin: 10px 0;
+}
+.treed_body_rendered blockquote > p:first-child {
+  margin-top: 0;
+}
+.treed_body_rendered blockquote > p:last-child {
+  margin-bottom: 0;
+}
+.treed_body_rendered > *:first-child {
+  margin-top: 0;
+}
+.treed_body_rendered > *:last-child {
+  margin-bottom: 0;
+}
+/** PLUGIN done */
+.n_Collapse > .TreeItem_children {
+  display: block;
+}
+.TreeItem_nochildren {
+  padding: 10px 50px;
+  text-align: center;
+  color: #555;
+}
