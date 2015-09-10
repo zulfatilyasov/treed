@@ -5,6 +5,7 @@ var React = require('react')
   , extend = require('./util/extend')
 
 module.exports = Treed
+window.Treed = Treed;
 
 Treed.prototype.quickstart = function (el, options) {
   options = options || {}
