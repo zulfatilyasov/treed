@@ -44,7 +44,7 @@ Treed.prototype.startView = function (el, options) {
 function ensureElement(el) {
   if ('string' === typeof el) {
     var found = document.querySelector(el)
-    if (!found) throw new Error('element not found: ' + el)
+    // if (!found) throw new Error('element not found: ' + el)
     el = found
   }
   return el
