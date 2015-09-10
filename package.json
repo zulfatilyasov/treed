@@ -2,7 +2,7 @@
   "name": "treed",
   "version": "0.3.0",
   "description": "The main component of an editor for hierarchical content. ",
-  "main": "index.js",
+  "main": "index.build.js",
   "scripts": {
     "test": "make test",
     "build-modules": "rm -rf dist && babel ./index.js --out-dir dist",
