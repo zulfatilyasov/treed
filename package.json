@@ -4,7 +4,9 @@
   "description": "The main component of an editor for hierarchical content. ",
   "main": "index.js",
   "scripts": {
-    "test": "make test"
+    "test": "make test",
+    "build-modules": "rm -rf dist && babel ./index.js --out-dir dist",
+    "build": "npm run build-modules"
   },
   "repository": {
     "type": "git",

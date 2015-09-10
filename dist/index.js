@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = {
   quickstart: require('./quickstart')
 };
@@ -128,4 +130,3 @@ module.exports = {
 //     return plugin[type] ? [plugin[type]].concat(list) : list
 //   }, [])
 // }
-

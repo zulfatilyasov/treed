@@ -17,7 +17,7 @@ dirs.forEach(function (name) {
 
 module.exports = {
   entry: [
-    './index.js'
+    './quickstart.js'
   ],
   output: {
     path: './',
