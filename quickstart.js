@@ -16,7 +16,7 @@ Treed.prototype.quickstart = function (el, options) {
   return this.initStore(options.data || {content: ''}, {
     actions: options.actions || require('./views/list/actions'),
   }).then(() => {
-    
+
   }).catch(error => {
     console.warn('Treed initialization failed!', error)
     throw error
@@ -25,13 +25,18 @@ Treed.prototype.quickstart = function (el, options) {
 
 Treed.prototype.startView = function (el, options) {
   options = options || {}
+  
   var viewOptions = extend({
     keys: options.keys || ListView.keys,
   }, options.viewOptions)
+
   var View = options.View || ListView
     , props = this.addView(viewOptions)
 
-  return <View {...props}/>;
+  return {
+    View: View,
+    props: props
+  };
 
     // React.render(<View {...props}/>, el, function (err) {
     //   if (err) return reject(err)
