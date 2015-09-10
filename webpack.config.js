@@ -17,11 +17,11 @@ dirs.forEach(function (name) {
 
 module.exports = {
   entry: [
-    './quickstart.js'
+    './index.js'
   ],
   output: {
     path: './',
-    filename: 'quickstart.build.js',
+    filename: 'index.build.js',
   },
 
   module: {
