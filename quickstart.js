@@ -25,19 +25,30 @@ Treed.prototype.quickstart = function (el, options) {
 
 Treed.prototype.startView = function (el, options) {
   options = options || {}
-  return new Promise((resolve, reject) => {
-    var viewOptions = extend({
-      keys: options.keys || ListView.keys,
-    }, options.viewOptions)
-    var View = options.View || ListView
-      , props = this.addView(viewOptions)
-    var ViewA = <View {...props}/>;
+  // return new Promise((resolve, reject) => {
+  //   var viewOptions = extend({
+  //     keys: options.keys || ListView.keys,
+  //   }, options.viewOptions)
+  //   var View = options.View || ListView
+  //     , props = this.addView(viewOptions)
 
-    React.render(ViewA, el, function (err) {
-      if (err) return reject(err)
-      resolve(props.store)
-    })
-  })
+  //   React.render(<View {...props}/>, el, function (err) {
+  //     if (err) return reject(err)
+  //     resolve(props.store)
+  //   })
+  // })
+  var viewOptions = extend({
+    keys: options.keys || ListView.keys,
+  }, options.viewOptions)
+  
+  var View = options.View || ListView
+    , props = this.addView(viewOptions)
+
+  return <View {...props}/>;
+    // React.render(<View {...props}/>, el, function (err) {
+    //   if (err) return reject(err)
+    //   resolve(props.store)
+    // })
 }
 
 function ensureElement(el) {
