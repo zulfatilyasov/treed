@@ -2,7 +2,6 @@ var React = require('react')
   , Treed = require('./classy')
   , ListView = require('./views/list')
   , extend = require('./util/extend')
-  , css = require('./index.less')
 
 module.exports = Treed
 window.Treed = Treed;
