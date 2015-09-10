@@ -31,8 +31,9 @@ Treed.prototype.startView = function (el, options) {
     }, options.viewOptions)
     var View = options.View || ListView
       , props = this.addView(viewOptions)
+    var ViewA = <View {...props}/>;
 
-    React.render(<View {...props}/>, el, function (err) {
+    React.render(ViewA, el, function (err) {
       if (err) return reject(err)
       resolve(props.store)
     })

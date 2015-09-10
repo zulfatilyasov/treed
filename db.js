@@ -42,7 +42,6 @@ Db.prototype = {
   },
 
   create: function (pid, ix, content, type) {
-    debugger;
     var id = uuid()
     var now = Date.now()
     var node = {
@@ -111,7 +110,6 @@ Db.prototype = {
       if (err) return done(err)
       this.nodes = {}
       var now = Date.now()
-      debugger;
       this.nodes[this.root] = {
         id: this.root,
         created: now,

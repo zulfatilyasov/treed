@@ -103,10 +103,7 @@ var SimpleBody = React.createClass({
       onChange: this._onChange,
       onBlur: this._onBlur
     }
-    if (Ctrl.isReactLegacyFactory) {
-      return <Ctrl {...props}/>
-    }
-    return Ctrl(props)
+    return <Ctrl {...props}/>
   },
 
   renderer: function () {
